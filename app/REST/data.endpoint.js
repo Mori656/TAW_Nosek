@@ -64,10 +64,33 @@ const posts = [
 
 const dataEndpoint = (router) => {
    router.get('/api/posts', async (request, response, next) => {
-       response.status(200).send({posts: posts});
+        const page = parseInt(request.query.page) || 1;
+        const limit = parseInt(request.query.limit) || 10;
+        const title = request.query.title || "";
+        const offset = (page - 1) * limit;
+        let filterPosts = [];
+        let resultsPosts = [];
+        //Filtrowanie
+        if(title){
+            posts.forEach(post => {
+                if(post.title.includes(title)){
+                    filterPosts.push(post)
+                }
+            });
+        }else{
+            filterPosts = posts;
+        }
+        //Paginacja
+        for(let i = 0; i < limit; i++){
+            if(filterPosts[i+offset]){
+                resultsPosts.push(filterPosts[i+offset])
+            }
+        }
+        response.status(200).send({posts:resultsPosts});
+
    });
 
-   router.post('/api/posts', async (request, response, next) => {
+    router.post('/api/posts', async (request, response, next) => {
     if(!request.body.newPost.id ||
         !request.body.newPost.title||
         !request.body.newPost.text
@@ -79,16 +102,32 @@ const dataEndpoint = (router) => {
     }
     
     });
+    router.put('/api/post/:id', async (request, response, next) => {
+        const id = parseFloat(request.params.id)
+        const postIndex = posts.findIndex(e => e.id == id)
+        if(request.body.newPost.title){
+            posts[postIndex].title = request.body.newPost.title
+        }
+        if(request.body.newPost.text){
+            posts[postIndex].text = request.body.newPost.text
+        }
+        if(request.body.newPost.image){
+            posts[postIndex].image = request.body.newPost.image
+        }
+        response.status(200).send("Post modiefied");
+        
+        });
     router.delete('/api/posts/:id', async (request, response, next) => {
         const id = parseFloat(request.params.id)
-        for( post in posts){
-            if (post.id == id){
-                posts.splice(posts.findIndex(e => e.id == id))
-                response.status(200).send("Post został usunięty");
-                return;
-            } 
+        const postIndex = posts.findIndex(e => e.id == id)
+        if(postIndex == -1){
+            response.status(404).send("Post not found");
+            return;
+        }else{
+            posts.splice(postIndex,1);
+            response.status(200).send("Post został usunięty");
         }
-        response.status(404).send("Post nie istnieje");
+        
     });
 
 };
