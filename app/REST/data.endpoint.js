@@ -68,10 +68,28 @@ const dataEndpoint = (router) => {
    });
 
    router.post('/api/posts', async (request, response, next) => {
-    posts.push(request.body.newPost);
-
-    response.status(200).send({post: posts[posts.length - 1]});
-});
+    if(!request.body.newPost.id ||
+        !request.body.newPost.title||
+        !request.body.newPost.text
+    ){
+        response.status(400).send("Bad Request");
+    }else{
+        posts.push(request.body.newPost);
+        response.status(200).send({post: posts[posts.length - 1]});
+    }
+    
+    });
+    router.delete('/api/posts/:id', async (request, response, next) => {
+        const id = parseFloat(request.params.id)
+        for( post in posts){
+            if (post.id == id){
+                posts.splice(posts.findIndex(e => e.id == id))
+                response.status(200).send("Post został usunięty");
+                return;
+            } 
+        }
+        response.status(404).send("Post nie istnieje");
+    });
 
 };
 
