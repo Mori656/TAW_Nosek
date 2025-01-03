@@ -1,0 +1,32 @@
+/* Ogólny wygląd bloga */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Lista postów */
+  .blog-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  /* Pojedynczy post */
+  .blog-item-container {
+    padding: 0.2rem;
+    border: 2px solid #ffd699;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Efekt na hover */
+  .blog-item-container:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-color: #ffa726;
+  }
+  
+  /* Nagłówek */
+  h2 {
+    font-weight: bold;
+    color: #704214;
+  }
+  

@@ -1,0 +1,58 @@
+<div class="container mt-5 p-4 shadow-lg rounded" style="max-width: 700px; background-color: #fff9e6;">
+    <h3 class="text-center mb-4 text-warning">Dodaj Nowy Post</h3>
+    <form (ngSubmit)="addPost(postForm)" #postForm="ngForm" class="needs-validation">
+        <!-- Tytuł -->
+        <div class="mb-4">
+        <label for="title" class="form-label fw-bold">Tytuł</label>
+        <input
+            type="text"
+            id="title"
+            class="form-control border-warning shadow-sm"
+            [(ngModel)]="title"
+            name="title"
+            required
+            placeholder="Wpisz tytuł posta"
+        />
+        <div *ngIf="postForm.submitted && !title" class="text-danger mt-2">
+            Tytuł jest wymagany.
+        </div>
+        </div>
+
+        <!-- Treść -->
+        <div class="mb-4">
+        <label for="text" class="form-label fw-bold">Treść</label>
+        <textarea
+            id="text"
+            class="form-control border-warning shadow-sm"
+            [(ngModel)]="text"
+            name="text"
+            rows="5"
+            required
+            placeholder="Wpisz treść posta"
+        ></textarea>
+        <div *ngIf="postForm.submitted && !text" class="text-danger mt-2">
+            Treść jest wymagana.
+        </div>
+        </div>
+
+        <!-- URL Obrazu -->
+        <div class="mb-4">
+        <label for="image" class="form-label fw-bold">URL Obrazu</label>
+        <input
+            type="url"
+            id="image"
+            class="form-control border-warning shadow-sm"
+            [(ngModel)]="image"
+            name="image"
+            placeholder="Wklej URL obrazu (opcjonalne)"
+        />
+        </div>
+
+        <!-- Przyciski -->
+        <div class="text-center">
+        <button type="submit" class="btn btn-warning text-white shadow-sm px-4 py-2">
+            Dodaj Post
+        </button>
+        </div>
+    </form>
+</div>

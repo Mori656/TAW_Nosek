@@ -1,0 +1,29 @@
+.card {
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.card-body {
+    color: #704214;
+    text-align: center;
+}
+
+.card-footer {
+    border-top: 1px solid #ffd699;
+    text-align: center;
+}
+
+.card:hover {
+    background-color: #fff4d6;
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover .card-footer {
+    background-color: #ffdab9;
+}

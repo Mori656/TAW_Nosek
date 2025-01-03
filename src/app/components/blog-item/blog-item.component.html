@@ -1,0 +1,17 @@
+<div class="card shadow-lg border-0" style="max-width: 600px; margin: 5em auto; background-color: #fff9e6;">
+    <!-- Blog Item Image -->
+    <div class="card-img-top">
+      <blog-item-image [image]="image"></blog-item-image>
+    </div>
+    
+    <div class="card-body">
+      <!-- Blog Item Text -->
+      <h5 class="card-title text-warning">Post</h5>
+      <blog-item-text [text]="text"></blog-item-text>
+    </div>
+    
+    <div class="card-footer" style="background-color: #ffeccc;">
+      <!-- Comments Section -->
+      <comments-section [postId]="postId"></comments-section>
+    </div>
+  </div>

@@ -1,0 +1,27 @@
+.container {
+    border-radius: 0.75rem;
+}
+
+.form-label {
+    color: #704214;
+}
+
+.form-control {
+    background-color: #fffcf2;
+    border: 2px solid #ffd699;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 5px rgba(255, 183, 77, 0.8);
+    border-color: #ffa726;
+}
+
+.btn-warning {
+    background-color: #ffb74d;
+    border: none;
+}
+
+.btn-warning:hover {
+    background-color: #ff9800;
+}
+  
