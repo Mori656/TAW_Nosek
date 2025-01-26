@@ -38,7 +38,10 @@ class DataService {
             throw new Error('Wystąpił błąd podczas usuwania danych');
         }
     }
- 
+
+
+       
+   
  }
  
  export default DataService;
