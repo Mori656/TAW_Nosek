@@ -1,0 +1,26 @@
+.container {
+    background-color: #fff9e6; /* Tło sekcji */
+    border-radius: 0.75rem; /* Zaokrąglenie krawędzi */
+    padding: 2rem; /* Padding wewnętrzny */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Cień dla sekcji */
+}
+
+h1.display-4 {
+    font-size: 2.5rem; /* Rozmiar czcionki dla tytułu */
+    font-weight: 700; /* Pogrubienie czcionki */
+}
+
+.lead {
+    font-size: 1.25rem; /* Rozmiar czcionki dla opisu */
+    color: #704214; /* Kolor tekstu */
+}
+
+a.text-primary {
+    color: #007bff; /* Kolor linku */
+    text-decoration: none; /* Bez podkreślenia */
+}
+
+a.text-primary:hover {
+    text-decoration: underline; /* Podkreślenie przy najechaniu */
+    color: #0056b3; /* Ciemniejszy kolor linku przy najechaniu */
+}

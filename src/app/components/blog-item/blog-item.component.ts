@@ -13,5 +13,5 @@ import { CommentsSectionComponent } from '../comments-section/comments-section.c
 export class BlogItemComponent {
   @Input() image?: string;
   @Input() text?: string;
-  @Input() postId!: string;
+  @Input() id!: number;
 }

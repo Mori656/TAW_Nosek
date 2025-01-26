@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { CommonModule } from '@angular/common';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'gallery',
@@ -11,14 +12,27 @@ import { CommonModule } from '@angular/common';
 export class GalleryComponent {
   images: string[] = [];
   enlargedImage: string | null = null;
+  private subscription: Subscription = new Subscription();
 
   constructor(private dataService: DataService) {
     this.loadImages();
   }
 
   loadImages() {
-    const posts = this.dataService.getAll();
-    this.images = posts.map((post) => post.image);
+    this.subscription.add(
+      this.dataService.getAll().subscribe({
+        next: (posts) => {
+          if (Array.isArray(posts)) {
+            this.images = posts.map((post) => post.image).filter(image => image);
+          } else {
+            console.error('Expected an array from dataService.getAll()');
+          }
+        },
+        error: (error) => {
+          console.error('Error loading images:', error);
+        }
+      })
+    );
   }
 
   enlargeImage(image: string) {

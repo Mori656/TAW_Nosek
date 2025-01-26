@@ -1,0 +1,37 @@
+.navbar {
+    background-color: #fff9e6; /* Tło navbaru */
+    border-bottom: 1px solid #ffd699; /* Dolna granica */
+}
+
+.navbar-brand {
+    font-size: 1.5rem; /* Rozmiar czcionki dla nazwy */
+    font-weight: 700; /* Pogrubienie czcionki */
+}
+
+.nav-link {
+    color: #704214; /* Kolor tekstu linków */
+    font-weight: 500; /* Waga czcionki */
+}
+
+.nav-link:hover {
+    color: #ffcc80; /* Kolor tekstu linków przy najechaniu */
+    text-decoration: underline; /* Podkreślenie przy najechaniu */
+}
+
+.navbar-toggler {
+    border-color: #ffd699; /* Kolor obramowania przycisku toggle */
+}
+
+.navbar-toggler-icon {
+    background-color: #704214; /* Kolor ikony toggle */
+}
+
+.btn.nav-link {
+    background-color: #ffcc80; /* Tło przycisku wylogowania */
+    color: #704214; /* Kolor tekstu przycisku */
+    border: none; /* Bez obramowania */
+}
+
+.btn.nav-link:hover {
+    background-color: #ffdab9; /* Kolor tła przycisku przy najechaniu */
+}

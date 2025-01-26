@@ -13,9 +13,11 @@
             required
             placeholder="Wpisz tytuł posta"
         />
-        <div *ngIf="postForm.submitted && !title" class="text-danger mt-2">
-            Tytuł jest wymagany.
-        </div>
+        @if (postForm.submitted && !title) {
+            <div class="text-danger mt-2">
+                Tytuł jest wymagany.
+            </div>
+        }
         </div>
 
         <!-- Treść -->
@@ -30,9 +32,11 @@
             required
             placeholder="Wpisz treść posta"
         ></textarea>
-        <div *ngIf="postForm.submitted && !text" class="text-danger mt-2">
-            Treść jest wymagana.
-        </div>
+        @if (postForm.submitted && !text) {
+            <div class="text-danger mt-2">
+                Treść jest wymagana.
+            </div>
+        }
         </div>
 
         <!-- URL Obrazu -->

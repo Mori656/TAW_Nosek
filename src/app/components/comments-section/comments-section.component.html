@@ -1,40 +1,42 @@
 <div class="card-body mt-3" style="background-color: #fff9e6; border-radius: 0.5rem;">
-    <h5 class="text-warning mb-4">Komentarze</h5>
-  
-    <!-- Formularz dodawania komentarzy -->
-    <form (ngSubmit)="addComment()" class="needs-validation">
-      <div class="mb-3">
-        <input
-          type="text"
-          placeholder="Twoje imię"
-          [(ngModel)]="author"
-          name="author"
-          required
-          class="form-control border-warning shadow-sm"
-        />
-      </div>
-      <div class="mb-3">
-        <textarea
-          placeholder="Napisz swój komentarz"
-          rows="3"
-          [(ngModel)]="text"
-          name="text"
-          required
-          class="form-control border-warning shadow-sm"
-        ></textarea>
-      </div>
-      <div class="text-end">
-        <button type="submit" class="btn btn-warning text-white shadow-sm px-4 py-2">
-          Dodaj komentarz
-        </button>
-      </div>
-    </form>
+  <h5 class="text-warning mb-4">Komentarze</h5>
 
-    <!-- Sekcja komentarzy -->
-    <div *ngIf="comments.length === 0" class="text-muted fst-italic mb-4">Brak komentarzy</div>
-    <ul class="list-group mb-4">
+  <!-- Formularz dodawania komentarzy -->
+  <form (ngSubmit)="addComment()" class="needs-validation">
+    <div class="mb-3">
+      <input
+        type="text"
+        placeholder="Twoje imię"
+        [(ngModel)]="author"
+        name="author"
+        required
+        class="form-control border-warning shadow-sm"
+      />
+    </div>
+    <div class="mb-3">
+      <textarea
+        placeholder="Napisz swój komentarz"
+        rows="3"
+        [(ngModel)]="text"
+        name="text"
+        required
+        class="form-control border-warning shadow-sm"
+      ></textarea>
+    </div>
+    <div class="text-end">
+      <button type="submit" class="btn btn-warning text-white shadow-sm px-4 py-2">
+        Dodaj komentarz
+      </button>
+    </div>
+  </form>
+
+  <!-- Sekcja komentarzy -->
+  @if (comments.length === 0) {
+    <div class="text-muted fst-italic mb-4">Brak komentarzy</div>
+  }
+  <ul class="list-group mb-4">
+    @for (item of comments; track $index) {
       <li
-        *ngFor="let item of comments"
         class="list-group-item d-flex justify-content-between align-items-start border-0 shadow-sm mb-2"
         style="background-color: #fffcf2;"
       >
@@ -43,7 +45,6 @@
           <p class="mb-0" style="color: #704214;">{{ item.text }}</p>
         </div>
       </li>
-    </ul>
-    
-  </div>
-  
+    }
+  </ul>
+</div>

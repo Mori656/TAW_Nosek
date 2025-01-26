@@ -21,23 +21,23 @@ export class AddPostComponent {
       this.dataService.addPost({
         title: this.title,
         text: this.text,
-        image: this.image || 'https://www.pandasecurity.com/en/mediacenter/src/uploads/2013/11/pandasecurity-facebook-photo-privacy.jpg',
-        id: this.generateId(),
+        image: this.image || 'https://www.pandasecurity.com/en/mediacenter/src/uploads/2013/11/pandasecurity-facebook-photo-privacy.jpg'
+      }).subscribe(response => {
+        console.log('Post added successfully:', response);
+        alert('Post został dodany!');
+        // Możesz dodać logikę do obsługi odpowiedzi, np. resetowanie formularza
+      }, error => {
+        console.error('Error adding post:', error);
+        alert('Wystąpił problem przy dodaniu posta. Upewnij się że odpowiednio uzupełniłes wszystkie pola!');
       });
-
       this.title = '';
       this.text = '';
       this.image = '';
 
       form.resetForm();
-      alert('Post został dodany!');
     } else {
       alert('Wypełnij wymagane pola!');
     }
-  }
-
-  private generateId(): string {
-    return Math.random().toString(36).substr(2, 9);
   }
 
 }

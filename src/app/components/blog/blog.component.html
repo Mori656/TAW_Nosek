@@ -1,17 +1,24 @@
 <div class="container mt-5">
-    <h2 class="text-center text-warning mb-4">Blog</h2>
-    <div class="blog-list">
-      <div 
-        class="blog-item-container shadow-sm rounded mb-4" 
-        *ngFor="let item of items" 
-        style="background-color: #fffcf2;"
-      >
-        <blog-item 
-          [image]="item.image" 
-          [text]="item.text" 
-          [postId]="item.id"
-        ></blog-item>
-      </div>
-    </div>
+  <h2 class="text-center text-warning mb-4">Blog</h2>
+  <div class="blog-list">
+      <!-- Sprawdzenie, czy lista po filtrowaniu jest pusta -->
+      @if ((items$ | filter:filterText).length === 0) {
+          <div class="alert alert-warning text-center">
+              <p>Brak wyników spełniających kryteria wyszukiwania.</p>
+          </div>
+      } @else {
+          @for (item of items$ | filter:filterText; track $index) {
+              <div 
+                  class="blog-item-container shadow-sm rounded mb-4" 
+                  style="background-color: #fffcf2;"
+              >
+                  <blog-item 
+                      [image]="item.image"
+                      [text]="item.text"
+                      [id]="item._id">
+                  ></blog-item>
+              </div>
+          }
+      }
   </div>
-  
+</div>

@@ -1,0 +1,25 @@
+.input-group {
+    margin-bottom: 1rem; /* Odstęp między polami formularza */
+}
+
+.form-control {
+    border-radius: 0.375rem; /* Zaokrąglenie krawędzi */
+    border: 1px solid #ffd699; /* Kolor obramowania */
+    background-color: #fff; /* Tło pola */
+    color: #704214; /* Kolor tekstu */
+}
+
+.form-control:focus {
+    border-color: #ffcc80; /* Kolor obramowania przy focu */
+    box-shadow: 0 0 0 0.2rem rgba(255, 204, 128, 0.25); /* Cień przy focu */
+}
+
+.btn-primary {
+    background-color: #ffcc80; /* Kolor tła przycisku */
+    border-color: #ffd699; /* Kolor obramowania przycisku */
+}
+
+.btn-primary:hover {
+    background-color: #ffdab9; /* Kolor tła przycisku przy najechaniu */
+    border-color: #ffd699; /* Kolor obramowania przycisku przy najechaniu */
+}

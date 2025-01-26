@@ -1,0 +1,18 @@
+.search-container {
+    display: flex; /* Umożliwia elastyczne rozmieszczenie elementów */
+    flex-direction: column; /* Ustawia elementy w kolumnie */
+    align-items: flex-start; /* Wyrównuje elementy do lewej */
+    margin: 1em 0; /* Odstęp od góry i dołu */
+}
+
+.form-control {
+    border-radius: 0.375rem; /* Zaokrąglenie krawędzi */
+    border: 1px solid #ffd699; /* Kolor obramowania */
+    background-color: #fff; /* Tło pola */
+    color: #704214; /* Kolor tekstu */
+}
+
+.form-control:focus {
+    border-color: #ffcc80; /* Kolor obramowania przy focu */
+    box-shadow: 0 0 0 0.2rem rgba(255, 204, 128, 0.25); /* Cień przy focu */
+}

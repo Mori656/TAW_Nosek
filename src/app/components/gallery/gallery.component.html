@@ -1,19 +1,22 @@
-<div class="container mt-4" >
+<div class="container mt-4">
   <h3 class="text-warning mb-4">Galeria zdjęć</h3>
   
   <!-- Siatka galerii -->
   <div class="gallery-grid">
-    <div 
-      class="gallery-item shadow-sm" 
-      *ngFor="let image of images" 
-      (click)="enlargeImage(image)"
-    >
-      <img [src]="image" alt="Obraz z posta" />
-    </div>
+    @for (image of images; track $index) {
+      <div 
+        class="gallery-item shadow-sm" 
+        (click)="enlargeImage(image)"
+      >
+        <img [src]="image" alt="Obraz z posta" />
+      </div>
+    }
   </div>
   
   <!-- Powiększony obraz -->
-  <div class="overlay" *ngIf="enlargedImage" (click)="closeImage()">
-    <img [src]="enlargedImage" alt="Powiększony obraz" class="enlarged-img shadow-lg" />
-  </div>
+  @if (enlargedImage) {
+    <div class="overlay" (click)="closeImage()">
+      <img [src]="enlargedImage" alt="Powiększony obraz" class="enlarged-img shadow-lg" />
+    </div>
+  }
 </div>
