@@ -1,21 +1,24 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CommentsServiceService {
-  private comments: { [postId: string]: { author: string; text: string;} [] } = {};
 
-  constructor() { }
-
-  getComments(postId: string) {
-    return this.comments[postId] || [];
+  private url = 'http://localhost:3000';
+  
+  
+  constructor(private http: HttpClient) {
   }
+  
 
-  addComment(postId: string, author: string, text: string) {
-    if(!this.comments[postId]) {
-      this.comments[postId] = [];
-    }
-    this.comments[postId].push({author, text});
+  // getComments(id: string) {
+  //   return this.http.get(this.url + '/api/posts/'+id+'/comments');
+  // }
+  
+  public addComment(id: number, comment: {author: string; text: string;}) {
+    console.log(this.url + '/api/post/'+ id +'/comment', comment);
+    return this.http.post(this.url + '/api/post/'+ id +'/comment', comment);
   }
 }

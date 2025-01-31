@@ -2,7 +2,7 @@
   <h5 class="text-warning mb-4">Komentarze</h5>
 
   <!-- Formularz dodawania komentarzy -->
-  <form (ngSubmit)="addComment()" class="needs-validation">
+  <form (ngSubmit)="addComment(commentForm)" #commentForm="ngForm" class="needs-validation">
     <div class="mb-3">
       <input
         type="text"
@@ -31,9 +31,9 @@
   </form>
 
   <!-- Sekcja komentarzy -->
-  @if (comments.length === 0) {
+  @if (!comments || comments.length === 0) {
     <div class="text-muted fst-italic mb-4">Brak komentarzy</div>
-  }
+  }@else{
   <ul class="list-group mb-4">
     @for (item of comments; track $index) {
       <li
@@ -47,4 +47,5 @@
       </li>
     }
   </ul>
+}
 </div>

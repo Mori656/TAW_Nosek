@@ -2,7 +2,7 @@
     display: flex; /* Umożliwia elastyczne rozmieszczenie elementów */
     flex-direction: column; /* Ustawia elementy w kolumnie */
     align-items: flex-start; /* Wyrównuje elementy do lewej */
-    margin: 1em 0; /* Odstęp od góry i dołu */
+    margin: 1em 5em; /* Odstęp od góry i dołu */
 }
 
 .form-control {

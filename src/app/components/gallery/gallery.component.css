@@ -1,11 +1,32 @@
-/* Galeria */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
+/* Wrapper dla przycisków przewijania */
+.gallery-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
 }
 
+/* Kontener galerii */
+.gallery-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px;
+  white-space: nowrap;
+  scrollbar-width: none; /* Ukrywa scrollbar w Firefoksie */
+  -ms-overflow-style: none; /* Ukrywa scrollbar w IE */
+}
+
+/* Ukrycie paska przewijania */
+.gallery-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Pojedynczy element galerii */
 .gallery-item {
+  flex: 0 0 auto;
+  width: 300px;
   border-radius: 0.5rem;
   overflow: hidden;
   cursor: pointer;
@@ -14,14 +35,41 @@
 
 .gallery-item img {
   width: 100%;
-  height: 150px;
+  height: 250px;
   object-fit: cover;
   display: block;
 }
 
+/* Efekt powiększenia */
 .gallery-item:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Przycisk przewijania */
+.scroll-btn {
+  position: absolute;
+  top: 60%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  height: 60%;
+}
+
+.left-btn {
+  left: 0px;
+  border-top-right-radius: 5em;
+  border-bottom-right-radius: 5em;
+}
+
+.right-btn {
+  right: 0px;
+  border-top-left-radius: 5em;
+  border-bottom-left-radius: 5em;
 }
 
 /* Powiększony obraz */

@@ -13,15 +13,27 @@ export class AddPostComponent {
   title: string = '';
   text: string = '';
   image: string = '';
+  selectedTags: string[] = [];
 
   constructor(private dataService: DataService) {}
+
+  toggleTag(tag: string) {
+    const index = this.selectedTags.indexOf(tag);
+    console.log(this.selectedTags)
+    if (index === -1) {
+        this.selectedTags.push(tag);
+    } else {
+        this.selectedTags.splice(index, 1);
+    }
+  } 
 
   addPost(form: any) {
     if(this.title.trim() && this.text.trim()) {
       this.dataService.addPost({
         title: this.title,
         text: this.text,
-        image: this.image || 'https://www.pandasecurity.com/en/mediacenter/src/uploads/2013/11/pandasecurity-facebook-photo-privacy.jpg'
+        image: this.image || 'https://www.pandasecurity.com/en/mediacenter/src/uploads/2013/11/pandasecurity-facebook-photo-privacy.jpg',
+        tags: this.selectedTags
       }).subscribe(response => {
         console.log('Post added successfully:', response);
         alert('Post został dodany!');

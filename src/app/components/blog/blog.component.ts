@@ -17,6 +17,8 @@ import { AuthService } from '../../services/auth.service';
 })
 export class BlogComponent implements OnInit {
   @Input() filterText = '';
+  tags = ['Praca','Edukacja','Zdrowie','Technologia','Sport','Podróże','Kultura','Muzyka','Nauka','Rozrywka'];
+  selectedTags: string[] = [];
 
  public items$: any;
 
@@ -31,4 +33,16 @@ export class BlogComponent implements OnInit {
       this.items$ = response;
    });
  }
+ toggleTag(tag: string) {
+  const index = this.selectedTags.indexOf(tag);
+  console.log(this.selectedTags)
+  if (index === -1) {
+      this.selectedTags.push(tag);
+  } else {
+      this.selectedTags.splice(index, 1);
+  }
+} 
+  filterTagCheck(itemTags: string[]):boolean {
+    return this.selectedTags.every(tag => itemTags.includes(tag));
+  }
 }

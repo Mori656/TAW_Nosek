@@ -30,18 +30,27 @@ export class LoginComponent implements OnInit {
  }
 
  signIn() {
-   return this.authService.authenticate(this.credentials).subscribe((result) => {
-     if (!result) {
-       this.logged = false;
-     } else {
-       this.logout = false;
-       this.credentials = {
-         login: '',
-         password: ''
-       };
-       this.router.navigate(['/']);
-     }
-   });
- }
+  return this.authService.authenticate(this.credentials).subscribe((result) => {
+    console.log(result);
+    if (result) { // Sprawdzenie, czy logowanie się powiodło i czy otrzymano token
+      this.logout = false;
+      this.credentials = {
+        login: '',
+        password: ''
+      };
+      this.router.navigate(['/']);
+    } else {
+      this.logged = false; // Logowanie nie powiodło się
+      
+      // Możesz dodać tutaj dodatkowe informacje o błędzie, np. komunikat dla użytkownika
+      console.error('Logowanie nie powiodło się');
+    }
+  }, (error) => {
+    // Obsługa błędów, które mogą wystąpić podczas wywołania serwisu
+    this.logged = false;
+    alert('Logowanie nie powiodło się');
+    console.error('Wystąpił błąd podczas logowania:', error);
+  });
+}
 
 }

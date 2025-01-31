@@ -8,7 +8,7 @@ import { TextFormatDirective } from '../../directives/text-format.directive';
 @Component({
  selector: 'search-bar',
  standalone: true,
- imports: [FormsModule,TextFormatDirective],
+ imports: [FormsModule],
  templateUrl: './search-bar.component.html',
  styleUrl: './search-bar.component.css'
 })

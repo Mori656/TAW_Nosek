@@ -1,8 +1,11 @@
-<div class="container mt-4">
+<div class="gallery-wrapper mt-4">
   <h3 class="text-warning mb-4">Galeria zdjęć</h3>
-  
-  <!-- Siatka galerii -->
-  <div class="gallery-grid">
+
+  <!-- Przycisk przewijania w lewo -->
+  <button class="scroll-btn left-btn" (click)="scrollGallery(-320)"></button>
+
+  <!-- Scrollowana Galeria -->
+  <div class="gallery-container" id="gallery">
     @for (image of images; track $index) {
       <div 
         class="gallery-item shadow-sm" 
@@ -12,7 +15,10 @@
       </div>
     }
   </div>
-  
+
+  <!-- Przycisk przewijania w prawo -->
+  <button class="scroll-btn right-btn" (click)="scrollGallery(320)"></button>
+
   <!-- Powiększony obraz -->
   @if (enlargedImage) {
     <div class="overlay" (click)="closeImage()">

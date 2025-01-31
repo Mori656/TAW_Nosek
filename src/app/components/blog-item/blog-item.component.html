@@ -6,12 +6,18 @@
     
     <div class="card-body">
       <!-- Blog Item Text -->
-      <h5 class="card-title text-warning">Post</h5>
+      <h5 class="card-title text-warning">{{title}}</h5>
+      <div class="tags-container">
+          @for (item of tags; track $index) {
+              <p>{{ item }}</p>
+          }
+      </div>
+      
       <blog-item-text [text]="text" [id]="id"></blog-item-text>
     </div>
     
     <div class="card-footer" style="background-color: #ffeccc;">
       <!-- Comments Section -->
-      <comments-section></comments-section>
+      <comments-section [id]="id" [comments]="comments"></comments-section>
     </div>
   </div>

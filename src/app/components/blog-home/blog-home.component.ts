@@ -4,11 +4,12 @@ import {BlogComponent} from "../blog/blog.component";
 import { GalleryComponent } from '../gallery/gallery.component';
 import { AddPostComponent } from '../add-post/add-post.component';
 import { DataService } from '../../services/data.service';
+import { BlogFooterComponent } from '../blog-footer/blog-footer.component';
 
 @Component({
  selector: 'blog-home',
  standalone: true,
- imports: [SearchBarComponent, BlogComponent, GalleryComponent,],
+ imports: [SearchBarComponent, BlogComponent, GalleryComponent,BlogFooterComponent],
  providers: [DataService],
  templateUrl: './blog-home.component.html',
  styleUrl: './blog-home.component.css'

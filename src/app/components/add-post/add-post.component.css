@@ -24,4 +24,42 @@
 .btn-warning:hover {
     background-color: #ff9800;
 }
-  
+
+.tag-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Odstęp między przyciskami */
+}
+
+.tag-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #fffcf2;
+    border: 2px solid #ffd699;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.tag-button:hover {
+    background-color: #ffd699;
+    border-color: #ffa726;
+}
+
+.tag-checkbox {
+    display: none; /*Ukryj checkbox */
+}
+
+.tag-button:has(input:checked) {
+    background-color: #ffa726;
+    border-color: #ff9800;
+    color: white;
+    font-weight: bold;
+}
+
+.submit-container{
+    display: flex;
+    margin-top: 1em;
+    justify-content: right;
+}

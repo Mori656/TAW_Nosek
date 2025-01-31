@@ -4,9 +4,9 @@
 }
 
 .card-title {
-    font-size: 1.25rem;
+    font-size: 1.9em;
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.2em;
 }
 
 .card-body {
@@ -26,4 +26,21 @@
 
 .card:hover .card-footer {
     background-color: #ffdab9;
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap; /* Jeśli tagi nie mieszczą się, przejdą do nowej linii */
+    gap: 8px; /* Odstęp między tagami */
+    justify-content: center;
+    margin-bottom: 1em;
+}
+
+.tags-container p {
+    background-color: #ffd699; /* Szare tło */
+    padding: 3px 8px;
+    border-radius: 20px; /* Zaokrąglenie dla wyglądu jak "tag" */
+    font-size: 12px;
+    display: inline-block;
+    margin: 0; /* Reset domyślnych marginesów */
 }

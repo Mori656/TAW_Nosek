@@ -1,0 +1,80 @@
+.footcontainer {
+    background-color: #fff9e6; /* Jasne, ciepłe tło */
+    color: #704214; /* Ciepły, ciemny kolor tekstu */
+    padding: 2em 0; /* Więcej paddingu */
+    margin-top: 2em;
+    border-top: 2px solid #ffd699; /* Ciepły kolor granicy */
+    width: 100%;
+    font-family: 'Arial', sans-serif; /* Nowoczesna czcionka */
+}
+
+.row {
+    display: flex;
+    justify-content: space-around; /* Wyrównanie kolumn */
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Responsywność */
+}
+
+/* Kolumny w stopce */
+.col {
+    flex: 1;
+    padding: 0 20px;
+    text-align: center; /* Wyśrodkowanie tekstu */
+    min-width: 200px; /* Minimalna szerokość kolumny */
+}
+
+h4 {
+    font-size: 1.5em; /* Mniejszy rozmiar nagłówka */
+    margin-bottom: 15px;
+    color: #ffcc80; /* Ciepły kolor akcentu */
+}
+
+p {
+    font-size: 1em; /* Mniejszy rozmiar tekstu */
+    color: #704214; /* Ciepły, ciemny kolor tekstu */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+ul li a {
+    color: #704214; /* Ciepły, ciemny kolor tekstu */
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+ul li a:hover {
+    color: #ffcc80; /* Ciepły kolor akcentu */
+    text-decoration: underline;
+}
+
+/* Sekcja Copyright */
+.copyright {
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid #ffd699; /* Ciepły kolor granicy */
+    padding-top: 20px;
+}
+
+.copyright p {
+    font-size: 0.9rem; /* Mniejszy rozmiar tekstu */
+    color: #704214; /* Ciepły, ciemny kolor tekstu */
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column; /* Kolumny ułożone pionowo na małych ekranach */
+    }
+
+    .col {
+        margin-bottom: 20px; /* Więcej odstępu między kolumnami */
+    }
+}

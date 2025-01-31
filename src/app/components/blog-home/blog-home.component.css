@@ -1,8 +1,18 @@
+.button-container {
+    margin: 0 5em; /* Margines 5em z lewej i prawej */
+}
+
 .btn-primary {
     background-color: #ffcc80; /* Kolor tła przycisku */
     border-color: #ffd699; /* Kolor obramowania przycisku */
     color: #704214; /* Kolor tekstu przycisku */
-    margin-top: 0.5em; /* Odstęp od pola wyszukiwania */
+    width: 100%; /* Przyciski zajmują 100% szerokości kontenera */
+    padding: 0.5em; /* Opcjonalne: dodanie paddingu dla lepszego wyglądu */
+    border-radius: 0;
+    border-bottom-left-radius: 3em;
+    border-bottom-right-radius: 3em;
+    font-size: 2em;
+    font-weight: bold;
 }
 
 .btn-primary:hover {

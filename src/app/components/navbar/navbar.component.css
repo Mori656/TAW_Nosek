@@ -1,21 +1,31 @@
 .navbar {
     background-color: #fff9e6; /* Tło navbaru */
     border-bottom: 1px solid #ffd699; /* Dolna granica */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Cień dla głębi */
 }
 
 .navbar-brand {
-    font-size: 1.5rem; /* Rozmiar czcionki dla nazwy */
+    font-size: 1.8rem; /* Zwiększenie rozmiaru czcionki dla nazwy */
     font-weight: 700; /* Pogrubienie czcionki */
+    transition: color 0.3s; /* Płynna zmiana koloru */
+}
+
+.navbar-brand:hover {
+    color: #ffcc80; /* Kolor przy najechaniu */
 }
 
 .nav-link {
     color: #704214; /* Kolor tekstu linków */
     font-weight: 500; /* Waga czcionki */
+    padding: 10px 15px; /* Dodanie paddingu dla lepszego wyglądu */
+    border-radius: 5px; /* Zaokrąglenie rogów */
+    transition: background-color 0.3s, color 0.3s; /* Płynne przejścia */
 }
 
 .nav-link:hover {
-    color: #ffcc80; /* Kolor tekstu linków przy najechaniu */
-    text-decoration: underline; /* Podkreślenie przy najechaniu */
+    color: #fff; /* Kolor tekstu linków przy najechaniu */
+    background-color: #ffcc80; /* Tło przy najechaniu */
+    text-decoration: none; /* Usunięcie podkreślenia przy najechaniu */
 }
 
 .navbar-toggler {
@@ -30,8 +40,12 @@
     background-color: #ffcc80; /* Tło przycisku wylogowania */
     color: #704214; /* Kolor tekstu przycisku */
     border: none; /* Bez obramowania */
+    padding: 10px 15px; /* Dodanie paddingu */
+    border-radius: 5px; /* Zaokrąglenie rogów */
+    transition: background-color 0.3s, color 0.3s; /* Płynne przejścia */
 }
 
 .btn.nav-link:hover {
     background-color: #ffdab9; /* Kolor tła przycisku przy najechaniu */
+    color: #704214; /* Kolor tekstu przycisku */
 }

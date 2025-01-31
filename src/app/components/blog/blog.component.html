@@ -1,23 +1,50 @@
+<div class="text-center mb-4">
+    @for (tag of tags; track $index){
+        <label class="btn btn-outline-warning mx-1 btn-tag">
+            <input 
+                type="checkbox" 
+                [value]="tag" 
+                (change)="toggleTag(tag)" 
+                [checked]="selectedTags.includes(tag)" 
+                style="display: none;" /> <!-- Ukryj standardowy checkbox -->
+            {{ tag }}
+        </label>
+    }
+</div>
+
 <div class="container mt-5">
+
+    
+    
   <h2 class="text-center text-warning mb-4">Blog</h2>
+
   <div class="blog-list">
       <!-- Sprawdzenie, czy lista po filtrowaniu jest pusta -->
       @if ((items$ | filter:filterText).length === 0) {
           <div class="alert alert-warning text-center">
               <p>Brak wyników spełniających kryteria wyszukiwania.</p>
           </div>
-      } @else {
-          @for (item of items$ | filter:filterText; track $index) {
+      } @else 
+      {
+          @for (item of items$ | filter:filterText; track $index) 
+          {
+            @if (filterTagCheck(item.tags)) 
+            {
+
               <div 
                   class="blog-item-container shadow-sm rounded mb-4" 
                   style="background-color: #fffcf2;"
               >
                   <blog-item 
                       [image]="item.image"
+                      [title]="item.title"
                       [text]="item.text"
-                      [id]="item._id">
-                  ></blog-item>
+                      [id]="item._id"
+                      [tags]="item.tags"
+                      [comments]="item.comments">
+                  </blog-item>
               </div>
+            }
           }
       }
   </div>

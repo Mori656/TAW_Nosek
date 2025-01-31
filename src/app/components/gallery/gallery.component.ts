@@ -42,4 +42,10 @@ export class GalleryComponent {
   closeImage() {
     this.enlargedImage = null;
   }
+  scrollGallery(amount: number) {
+    const gallery = document.getElementById("gallery");
+    if (gallery) {
+      gallery.scrollBy({ left: amount, behavior: "smooth" });
+    }
+  }
 }

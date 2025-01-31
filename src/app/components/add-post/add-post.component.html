@@ -53,10 +53,56 @@
         </div>
 
         <!-- Przyciski -->
-        <div class="text-center">
-        <button type="submit" class="btn btn-warning text-white shadow-sm px-4 py-2">
-            Dodaj Post
-        </button>
+        <div class="tags-container">
+            <label class="form-label fw-bold">Wybierz tagi (opcjonalnie):</label>
+            <div class="tag-buttons">
+                <label class="tag-button">
+                    <input type="checkbox" class="tag-checkbox" [checked]="selectedTags.includes('Praca')" (change)="toggleTag('Praca')">
+                    Praca
+                </label>
+                <label class="tag-button">
+                    <input type="checkbox" class="tag-checkbox" [checked]="selectedTags.includes('Edukacja')" (change)="toggleTag('Edukacja')">
+                    Edukacja
+                </label>
+                <label class="tag-button">
+                    <input type="checkbox" class="tag-checkbox" [checked]="selectedTags.includes('Zdrowie')" (change)="toggleTag('Zdrowie')">
+                    Zdrowie
+                </label>
+                <label class="tag-button">
+                    <input type="checkbox" class="tag-checkbox" [checked]="selectedTags.includes('Technologia')" (change)="toggleTag('Technologia')">
+                    Technologia
+                </label>
+                <label class="tag-button">
+                    <input type="checkbox" class="tag-checkbox" [checked]="selectedTags.includes('Sport')" (change)="toggleTag('Sport')">
+                    Sport
+                </label>
+                <label class="tag-button">
+                    <input type="checkbox" class="tag-checkbox" [checked]="selectedTags.includes('Podróże')" (change)="toggleTag('Podróże')">
+                    Podróże
+                </label>
+                <label class="tag-button">
+                    <input type="checkbox" class="tag-checkbox" [checked]="selectedTags.includes('Kultura')" (change)="toggleTag('Kultura')">
+                    Kultura
+                </label>
+                <label class="tag-button">
+                    <input type="checkbox" class="tag-checkbox" [checked]="selectedTags.includes('Muzyka')" (change)="toggleTag('Muzyka')">
+                    Muzyka
+                </label>
+                <label class="tag-button">
+                    <input type="checkbox" class="tag-checkbox" [checked]="selectedTags.includes('Nauka')" (change)="toggleTag('Nauka')">
+                    Nauka
+                </label>
+                <label class="tag-button">
+                    <input type="checkbox" class="tag-checkbox" [checked]="selectedTags.includes('Rozrywka')" (change)="toggleTag('Rozrywka')">
+                    Rozrywka
+                </label>
+            </div>
+        </div>
+        
+        <div class="submit-container">
+            <button type="submit" class="btn btn-warning text-white shadow-sm px-4 py-2">
+                Dodaj Post
+            </button>
         </div>
     </form>
 </div>
